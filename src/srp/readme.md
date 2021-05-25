@@ -14,7 +14,7 @@ Dentre os inumeros exemplos, podemos citar:
 - persistencia
 - mensageria
 - validação
-
+<hr>
 
 **Alguns benefícios do SRP:**
 
@@ -139,7 +139,7 @@ Não! Veja que essa classe estava por exemplo salvando a ordem de comprar.
 ┗ 📄 main.ts
 
 ~~~
-<br>
+<hr>
 
 `main.ts`
 ~~~ typescript
@@ -166,7 +166,7 @@ console.log(order.orderStatus)
 order.checkout()
 console.log(order.orderStatus)
 ~~~
-<br>
+<hr>
 
 `shopping-cart.ts`
 ~~~ typescript
@@ -200,7 +200,7 @@ export class ShoppingCart {
     return this._items.length === 0
   }
 ~~~
-<br>
+<hr>
 
 `product.ts`
 ~~~ typescript
@@ -210,8 +210,7 @@ export class Product implements CartItem {
   constructor(public name: string, public price: number) {}
 }
 ~~~
-
-<br>
+<hr>
 
 `order.ts`
 
@@ -253,7 +252,7 @@ export class Order {
   }
 }
 ~~~
-<br>
+<hr>
 
 `cart-item.ts`
 ~~~ typescript
@@ -262,13 +261,13 @@ export interface CartItem {
   price: number
 }
 ~~~
-<br>
+<hr>
 
 `order-status.ts`
 ~~~ typescript
 export type OrderStatus = 'open' | 'closed'
 ~~~
-<br>
+<hr>
 
 `message.ts`
 ~~~ typescript
@@ -278,7 +277,7 @@ export class Message {
   }
 }
 ~~~
-<br>
+<hr>
 
 `persistency.ts`
 ~~~ typescript
@@ -288,3 +287,4 @@ export class Persistency {
   }
 }
 ~~~
+<hr>
