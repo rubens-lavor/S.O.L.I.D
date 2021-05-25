@@ -1,9 +1,18 @@
 # Single Responsibility Principle (SRP)
 
-Princípio da Responsabilidade Única
 
 _“Uma classe deve ter um, e somente um, motivo para ser modificada”_
 
+E se a classe só tem um motivo para ser modificada, certamente ela só deve ter uma única responsabilidade.
+
+**E qual seria essa responsabilidade?**
+
+Dentre os inumeros exemplos, podemos citar:
+
+- regras de negócio
+- persistencia
+- mensageria
+- validação
 
 
 **Alguns benefícios do SRP:**
@@ -12,7 +21,8 @@ _“Uma classe deve ter um, e somente um, motivo para ser modificada”_
 - Facilitação da legibilidade;
 - Redução de acoplamento;
 - Código limpo e testável;
-- Facilidade de evolução.
+- Facilidade de evolução;
+- Coesão das classes.
 
 
 ---
@@ -82,16 +92,7 @@ export class ShoppingCart {
     return this._items.length === 0
   }
 }
-
-const shoppingCart = new ShoppingCart()
-shoppingCart.addItem({ name: 'Camiseta', price: 49.91 })
-shoppingCart.addItem({ name: 'Caderno', price: 9.91 })
-shoppingCart.addItem({ name: 'Lapis', price: 1.59 })
-
-console.log(shoppingCart.items)
-console.log(shoppingCart.total())
-console.log(shoppingCart.orderStatus)
-shoppingCart.checkout()
-console.log(shoppingCart.orderStatus)
-
 ~~~
+
+
+A pergunta é: Esta classe está fazendo apenas uma coisa?
