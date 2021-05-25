@@ -11,7 +11,7 @@ export class Order {
     private readonly message: Message,
     private readonly persistency: Persistency,
   ) {}
-  /*Dessa formas estamos ferindo o princípio de inversão de dependência*/
+  /*Dessa forma estamos ferindo o princípio de inversão de dependência*/
 
   get orderStatus(): OrderStatus {
     return this._orderStatus
