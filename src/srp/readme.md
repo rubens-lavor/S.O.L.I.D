@@ -119,8 +119,9 @@ Não! Veja que essa classe estava por exemplo salvando a ordem de comprar.
 ---
 
 ### Após a refatoração:
+<br>
 
-main.ts
+`main.ts`
 ~~~ typescript
 import { ShoppingCart } from './entities/shopping-cart'
 import { Order } from './entities/order'
@@ -145,8 +146,9 @@ console.log(order.orderStatus)
 order.checkout()
 console.log(order.orderStatus)
 ~~~
+<br>
 
-shopping-cart.ts
+`shopping-cart.ts`
 ~~~ typescript
 import { CartItem } from './interfaces/cart-item'
 
@@ -178,8 +180,9 @@ export class ShoppingCart {
     return this._items.length === 0
   }
 ~~~
+<br>
 
-product.ts
+`product.ts`
 ~~~ typescript
 import { CartItem } from './interfaces/cart-item'
 
@@ -187,11 +190,11 @@ export class Product implements CartItem {
   constructor(public name: string, public price: number) {}
 }
 ~~~
+<br>
 
-order.ts
+`order.ts`
 
-**IMPORTANTE:**
-Há um problema aqui, pois Order depende de classes concretas, quando deveria depender de abstações (interfaces). Assim o código fica muito acoplado, veja que Order depende
+**IMPORTANTE:** Há um problema aqui, pois Order depende de classes concretas, quando deveria depender de abstações (interfaces). Assim o código fica muito acoplado, veja que Order depende
 de objetos específicos, como por exemplo um determinado carrinho de compras, quando deveria depeder qualquer carrinho de compras. Isso fere o princípio da inversão de dependencia, o "D" do SOLID.
 
 ~~~ typescript
@@ -229,22 +232,24 @@ export class Order {
   }
 }
 ~~~
+<br>
 
-
-cart-item.ts
+`cart-item.ts`
 ~~~ typescript
 export interface CartItem {
   name: string
   price: number
 }
 ~~~
+<br>
 
-order-status.ts
+`order-status.ts`
 ~~~ typescript
 export type OrderStatus = 'open' | 'closed'
 ~~~
+<br>
 
-message.ts
+`message.ts`
 ~~~ typescript
 export class Message {
   sendMessage(msg: string): void {
@@ -252,8 +257,9 @@ export class Message {
   }
 }
 ~~~
+<br>
 
-persistency.ts
+`persistency.ts`
 ~~~ typescript
 export class Persistency {
   saveOrder(): void {
