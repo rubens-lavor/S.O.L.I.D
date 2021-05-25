@@ -35,7 +35,9 @@ Uma classe pode ser considerada coesa quando a mesma utiliza seus atributos dent
 
 Carrinho de compras, a classe contém um array de itens e status de compra como atributos. Além de métodos como adicinar um item, remover, finalizar compra e afins.
 
-### Código Inicial:
+## Código Inicial:
+
+`shopping-cart.ts`
 ~~~ typescript
 type CartItem = {
   name: string
@@ -118,7 +120,25 @@ Não! Veja que essa classe estava por exemplo salvando a ordem de comprar.
 
 ---
 
-### Após a refatoração:
+## Após a refatoração:
+
+<br>
+
+~~~
+📂srp
+┣ 📂entities
+┃ ┣ 📂interfaces
+┃ ┃ ┣ 📄cart-item.ts
+┃ ┃ ┗ 📄order-status.ts
+┃ ┣ 📄order.ts
+┃ ┣ 📄product.ts
+┃ ┗ 📄shopping-cart.ts
+┣ 📂services
+┃ ┣ 📄message.ts
+┃ ┗ 📄persistency.ts
+┗ 📄 main.ts
+
+~~~
 <br>
 
 `main.ts`
@@ -190,6 +210,7 @@ export class Product implements CartItem {
   constructor(public name: string, public price: number) {}
 }
 ~~~
+
 <br>
 
 `order.ts`
