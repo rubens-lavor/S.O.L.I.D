@@ -35,7 +35,7 @@ Carrinho de compras, a classe contém um array de itens e status de compra como 
 
 ## Código Inicial:
 
-### `shopping-cart.ts`
+##### `shopping-cart.ts`
 ~~~ typescript
 type CartItem = {
   name: string
@@ -139,7 +139,7 @@ Não! Veja que essa classe estava por exemplo salvando a ordem de comprar.
 ~~~
 <hr>
 
-### `main.ts`
+##### `main.ts`
 ~~~ typescript
 import { ShoppingCart } from './entities/shopping-cart'
 import { Order } from './entities/order'
@@ -166,7 +166,7 @@ console.log(order.orderStatus)
 ~~~
 <hr>
 
-### `shopping-cart.ts`
+##### `shopping-cart.ts`
 ~~~ typescript
 import { CartItem } from './interfaces/cart-item'
 
@@ -200,7 +200,7 @@ export class ShoppingCart {
 ~~~
 <hr>
 
-### `product.ts`
+##### `product.ts`
 ~~~ typescript
 import { CartItem } from './interfaces/cart-item'
 
@@ -210,7 +210,7 @@ export class Product implements CartItem {
 ~~~
 <hr>
 
-### `order.ts`
+##### `order.ts`
 
 **IMPORTANTE:** Há um problema aqui, pois Order depende de classes concretas, quando deveria depender de abstações (interfaces). Assim o código fica muito acoplado, veja que Order depende
 de objetos específicos, como por exemplo um determinado carrinho de compras, quando deveria depeder qualquer carrinho de compras. Isso fere o princípio da inversão de dependencia, o "D" do SOLID.
@@ -252,7 +252,7 @@ export class Order {
 ~~~
 <hr>
 
-### `cart-item.ts`
+##### `cart-item.ts`
 ~~~ typescript
 export interface CartItem {
   name: string
@@ -261,13 +261,13 @@ export interface CartItem {
 ~~~
 <hr>
 
-### `order-status.ts`
+##### `order-status.ts`
 ~~~ typescript
 export type OrderStatus = 'open' | 'closed'
 ~~~
 <hr>
 
-### `message.ts`
+##### `message.ts`
 ~~~ typescript
 export class Message {
   sendMessage(msg: string): void {
@@ -277,7 +277,7 @@ export class Message {
 ~~~
 <hr>
 
-### `persistency.ts`
+##### `persistency.ts`
 ~~~ typescript
 export class Persistency {
   saveOrder(): void {
