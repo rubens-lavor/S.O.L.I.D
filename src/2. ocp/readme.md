@@ -30,7 +30,7 @@ Dessa forma o método `totalWithDiscount()` só precisa chamar o `calculate()` d
 
 <hr>
 
-### `discount.ts`
+##### `discount.ts`
 ~~~ typescript
 export abstract class Discount {
   abstract calculate(value: number): number
@@ -58,7 +58,7 @@ export class NoDiscount extends Discount {
 ~~~
 ---
 
-### `shopping-cart.ts`
+##### `shopping-cart.ts`
 ~~~ typescript
 import { CartItem } from './interfaces/cart-item'
 import { Discount } from './discount'
@@ -102,7 +102,7 @@ export class ShoppingCart {
 
 ---
 
-### `main.ts`
+##### `main.ts`
 ~~~ typescript
 import { ShoppingCart } from './classes/shopping-cart'
 import { Order } from './classes/order'
