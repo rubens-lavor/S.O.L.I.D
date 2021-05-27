@@ -20,9 +20,10 @@ Usando o exemplo passado do carrinho de compras, imaginei que teríamos uma sema
 Para isso criamos um método em `ShoppingCart`, chamando `totalWithDiscount()` como a cada dia um desconto diferente é aplicado, não seria interessante ficar o tempo todo modificando esse método de acordo com o valor do desconto. Faríamos o oposto que o princípio nos diz.
 
 
-A estratégia usada foi criar uma classe abstrata chamada `Discount`, com um método, também abstrato, `calculate()`.
+A estratégia usada foi criar uma classe abstrata chamada `Discount`, com um método chamado `calculate()` e um atributo `discount` inicialmente valendo zero.
 
-Em seguinda criar classes concretas de descontos que herdam `Descount` e injetar o objeto dessas classes no constructor da `ShoppingCart`.
+Em seguinda criar classes concretas de descontos que herdam `Descount`, setando o atributo `discount` com um valor de desconto,
+e injetar o objeto dessas classes no constructor da `ShoppingCart`.
 
 Dessa forma o método `totalWithDiscount()` só precisa chamar o `calculate()` do objeto tipo `Descount` foi foi injetado.
 
@@ -33,28 +34,22 @@ Dessa forma o método `totalWithDiscount()` só precisa chamar o `calculate()` d
 ##### `discount.ts`
 ~~~ typescript
 export abstract class Discount {
-  abstract calculate(value: number): number
+  protected discount = 0
+
+  calculate(price: number): number {
+    return price * (1 - this.discount)
+  }
 }
 
 export class FiftyPercentDiscount extends Discount {
-  private readonly discount: number = 0.5
-  calculate(price: number): number {
-    return price * (1 - this.discount)
-  }
+  protected readonly discount: number = 0.5
 }
 
 export class TenPercentDiscount extends Discount {
-  private readonly discount: number = 0.1
-  calculate(price: number): number {
-    return price * (1 - this.discount)
-  }
+  protected readonly discount: number = 0.1
 }
 
-export class NoDiscount extends Discount {
-  calculate(price: number): number {
-    return price
-  }
-}
+export class NoDiscount extends Discount {}
 ~~~
 ---
 
