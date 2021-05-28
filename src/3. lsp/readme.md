@@ -1,6 +1,6 @@
 # Liskov Substitution Principle (LSP)
 
-_" Se $\phi(x)$ é uma propriedade demonstrável dos objetos $x$ de tipo $T$. Então $\phi(y)$ deve ser verdadeiro para objetos $y$ de tipo $S$ onde $S$ é um subtipo de $T$"._
+_" Se φ(x) é uma propriedade demonstrável dos objetos x de tipo T. Então φ(y) deve ser verdadeiro para objetos y de tipo S onde S é um subtipo de T"._
 
 Subtipos precisam ser substituíveis por seus tipo de base.
 
