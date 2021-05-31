@@ -2,6 +2,7 @@ import { OrderStatus } from './interfaces/order-status'
 import { Message } from '../services/message'
 import { ShoppingCart } from './shopping-cart'
 import { Persistency } from '../services/persistency'
+import { CustomerOrder } from './interfaces/customer-protocol'
 
 export class Order {
   private _orderStatus: OrderStatus = 'open'
@@ -10,8 +11,8 @@ export class Order {
     private readonly cart: ShoppingCart,
     private readonly message: Message,
     private readonly persistency: Persistency,
+    private readonly customer: CustomerOrder,
   ) {}
-  /*Dessa forma estamos ferindo o princípio de inversão de dependência*/
 
   get orderStatus(): OrderStatus {
     return this._orderStatus
@@ -29,5 +30,11 @@ export class Order {
     )
     this.persistency.saveOrder()
     this.cart.clear()
+
+    console.log(
+      'O cliente é: ',
+      this.customer.getName(),
+      this.customer.getIdNumber(),
+    )
   }
 }
