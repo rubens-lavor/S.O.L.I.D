@@ -107,3 +107,83 @@ export class EnterpriseCustomer implements EnterpriseCustomerProtocol {
 }
 ~~~
 
+Para o nosso exemplo é importate também que as classes tenham métodos `get` para o nome e para o número de identificação, seja ele CPF ou CNPJ. E para isso vamos criar mais uma interface.
+
+~~~ typescript
+export interface CustomerOrder {
+  getName(): string
+  getIdNumber(): string
+}
+~~~
+
+Agora fazemos as classes `IndividualCustomer` e `EnterpriseCustomer` implementarem também a `CustomerOrder`
+
+E, finalmente, assim temos os arquios:
+
+##### `customer-protocol.ts`
+~~~ typescript
+export interface CustomerOrder {
+  getName(): string
+  getIdNumber(): string
+}
+
+export interface IndividualCustomerProtocol {
+  firstName: string
+  lastName: string
+  cpf: string
+}
+
+export interface EnterpriseCustomerProtocol {
+  name: string
+  cnpj: string
+}
+~~~
+
+
+##### `customer.ts`
+~~~ typescript
+import {
+  IndividualCustomerProtocol,
+  EnterpriseCustomerProtocol,
+  CustomerOrder,
+} from './interfaces/customer-protocol'
+
+
+export class IndividualCustomer implements IndividualCustomerProtocol, CustomerOrder {
+  firstName: string
+  lastName: string
+  cpf: string
+
+  constructor(firstName: string, lastName: string, cpf: string) {
+    this.firstName = firstName
+    this.lastName = lastName
+    this.cpf = cpf
+  }
+
+  getName(): string {
+    return `${this.firstName} ${this.lastName}`
+  }
+  getIdNumber(): string {
+    return this.cpf
+  }
+
+}
+
+export class EnterpriseCustomer implements EnterpriseCustomerProtocol, CustomerOrder {
+  name: string
+  cnpj: string
+
+  constructor(name: string, cnpj: string) {
+    this.name = name
+    this.cnpj = cnpj
+  }
+
+  getName(): string {
+    return this.name
+  }
+  getIdNumber(): string {
+    return this.cnpj
+  }
+
+}
+~~~
