@@ -1,16 +1,10 @@
 # Interface Segregation Principle (ISP)
 
-_""._
+Clientes não devem ser forçados a depender de interfaces que não utilizam.
 
-Princípio da segregação de interface
+Em outras palavras, o principio prega que uma interface não deve forçar uma classe a implementar coisas que ela não irá utilizar.
 
-Os clientes não devem ser forçados a depender de interfaces que não utilizam
-
-<hr>
-
-**Alguns benefícios do ISP:**
--
--
+Abaixo será apresentado um exemplo discutido inicialmente na aula, para expor problemas e algumas incoerências que uma interface muito grande pode gerar.
 
 ---
 ## Exemplo proposto:
