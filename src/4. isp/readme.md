@@ -80,7 +80,6 @@ export interface EnterpriseCustomerProtocol {
 
 Dessa forma a classe `IndividualCustomer` implementa `IndividualCustomerProtocol` e a classe `EnterpriseCustomer` implementa `EnterpriseCustomerProtocol`
 
-##### `    `
 ~~~ typescript
 export class IndividualCustomer implements IndividualCustomerProtocol {
   firstName: string
