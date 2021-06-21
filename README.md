@@ -1,6 +1,6 @@
 # S.O.L.I.D
 
-SOLID é um acrônimo  que representa 5 princípios da programação orientada a objetos, identificados por Uncle Bob.
+SOLID é um acrônimo  que representa 5 princípios da programação orientada a objetos, identificados por Robert C. Martin (Uncle Bob).
 
 São boas práticas que podem ser aplicadas a qualquer linguagem de programação que suporta o paradigma de orientada a objetos.
 
