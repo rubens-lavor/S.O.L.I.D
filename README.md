@@ -21,6 +21,7 @@ São boas práticas que podem ser aplicadas a qualquer linguagem de programaçã
 [DIP - Dependency inversion principle](src/5.%20dip) - Princípio da inversão de dependência 
 > Dependa de abstrações e não de implementações.
 
+Os links acima redirecionam para o diretório do princípio em questão. Dentro de cada diretório há um readme específico que detalha o princípio e o exemplo proposto.
 
 **Vantagens:**
 - Código modular;
